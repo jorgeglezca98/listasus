@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './homePage.module.css'
-import List from '../../components/list/list'
+import List from '../../infrastructure/list/list'
 
 import lens from '../../assets/img/lens.png'
 import internetSEarch from '../../assets/img/internet-search.svg'
