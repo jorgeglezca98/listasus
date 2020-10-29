@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import List from './components/list/list'
+import HomePage from './pages/home/homePage.js'
 
 ReactDOM.render(
-  <List author="Jorge" name="Animales" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>,
+  <HomePage></HomePage>,
   document.getElementById('root')
 );

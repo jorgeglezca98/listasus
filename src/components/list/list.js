@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './list.module.css'
 
-import heart from '../../resources/img/heart.png'
-import leaf from '../../resources/img/leaf.png'
+import heart from '../../assets/img/heart.png'
+import leaf from '../../assets/img/leaf.png'
 
 class List extends React.Component {
     
