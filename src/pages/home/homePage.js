@@ -57,11 +57,11 @@ class HomePage extends React.Component {
                 <div className={ styles.popular}>
                     <h2>Popular lists</h2>
                     <div className={ styles.lists}>
-                        <List author="Jorge" name="Animales" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
-                        <List author="Jorge" name="Animales" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
-                        <List author="Jorge" name="Animales" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
-                        <List author="Jorge" name="Animales" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
-                        <List author="Jorge" name="Animales" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
                     </div>
                 </div>
             </div>

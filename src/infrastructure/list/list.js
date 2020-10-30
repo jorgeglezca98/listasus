@@ -2,15 +2,27 @@ import React from 'react'
 import styles from './list.module.css'
 
 import heart from '../../assets/img/heart.png'
-import leaf from '../../assets/img/leaf.png'
+import leafIcon from '../../assets/img/leaf.png'
+import babyIcon from '../../assets/img/baby.png'
+import foodIcon from '../../assets/img/food.png'
+import travelICon from '../../assets/img/travel.png'
+import computerIcon from '../../assets/img/computer.png'
 
 class List extends React.Component {
+
+    categoryMap = { 
+        "nature": leafIcon, 
+        "parenthood": babyIcon,
+        "food": foodIcon,
+        "travel": travelICon,
+        "technology": computerIcon
+    }
     
     render() {
         return (
             <div className={ styles.cardview + ' ' + styles.list}>
                 <div className={ styles.listHead }>
-                    <img src={ leaf } alt="category"/>
+                    <img src={ this.categoryMap[this.props.category] } alt="category"/>
                     <p>{ this.props.author }</p>
                 </div>
                 <hr/>
