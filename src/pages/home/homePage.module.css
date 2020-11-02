@@ -187,50 +187,17 @@ nav {
     text-shadow: 3px 3px 5px black;
 }
 
-.searchBar {
+.searchBarContainer{ 
     width: 75%;
     min-width: 300px;
     max-width: 550px;
-    height: 35px;
-    display: flex;
-    flex-flow: row;
-    border-radius: 50%;
-    background-color: white;
-    border-radius: 17.5px 17.5px 17.5px 17.5px;
     margin: 0px auto;
 }
 
-.searchBar > * {
-    background-color: transparent;
-    border: none;
-    height: 100%;
-}
-
-.searchBar > input {
-    width: 90%;
-    padding-left: 30px;
-    padding-right: 10px;
-}
-
-.searchBar > img {
-    height: 50%;
-    margin: auto;
-}
-
 @media all and (max-width:370px) {
-    .searchBar > img {
-        height: 40%;
-    }
-
-    .searchBar {
+    .searchBarContainer {
         width: 85%;
         min-width: 0px;
-    }
-}
-
-@media all and (max-width:330px) {
-    .searchBar > img {
-        visibility: hidden;
     }
 }
 

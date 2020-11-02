@@ -1,26 +1,26 @@
 import React from 'react'
 import styles from './homePage.module.css'
 import List from '../../infrastructure/list/list'
+import SearchBar from '../../shared/infrastructure/searchBar'
 
-import lens from '../../assets/img/lens.png'
 import internetSEarch from '../../assets/img/internet-search.svg'
 import doubt from '../../assets/img/doubt.svg'
 import listImg from '../../assets/img/list.svg'
 import giveKnowledge from '../../assets/img/give-knowledge.svg'
+
 
 class HomePage extends React.Component {
 
     render() {
         return (
             <div>
-                <div className={ styles.search}>
-                    <div className={ styles.fadeOut}>
+                <div className={ styles.search }>
+                    <div className={ styles.fadeOut }>
                         <div>
-                            <h1 className={ styles.webName}>Listasus</h1>
+                            <h1 className={ styles.webName }>Listasus</h1>
                             <p>Organiza. Comparte. Lista.</p>
-                            <div className={ styles.searchBar}>
-                                <input placeholder="¿De qué va la lista que necesitas?"></input>
-                                <img src={lens} alt='Search button'></img>
+                            <div className={ styles.searchBarContainer }>
+                                <SearchBar/>
                             </div>
                         </div>
                     </div>
