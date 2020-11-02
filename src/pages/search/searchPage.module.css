@@ -5,11 +5,10 @@
     margin: 0px auto;
     flex-wrap: wrap;
     margin-top: 15px;
-    min-height: 100px;
 }
 
 .searchResults {
-    margin: 10px;
+    padding: 10px;
 }
 
 .searchResults > p {
