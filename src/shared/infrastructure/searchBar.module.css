@@ -5,7 +5,9 @@
     display: flex;
     flex-flow: row;
     background-color: white;
-    border-radius: 17.5px 17.5px 17.5px 17.5px;
+    border-radius: 17.5px;
+    border: 1px #dddddd solid;
+    box-shadow: 2px 2px 5px #999999;
 }
 
 .searchBar > * {

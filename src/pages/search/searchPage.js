@@ -1,6 +1,7 @@
 import React from 'react'
 import List from '../../infrastructure/list/list'
 import ListEntity from '../../domain/list/entity/list'
+import SearchBar from '../../shared/infrastructure/searchBar'
 
 import styles from './searchPage.module.css'
 
@@ -19,9 +20,14 @@ class SearchPage extends React.Component {
         }
     }
 
+    searchResults = (search) => { }
+
     render () {
         return (
             <div className={styles.searchResults}>
+                <div className={ styles.searchBarContainer }>
+                    <SearchBar onSearch={ this.searchResults }/>
+                </div>
                 <p>{this.state.searchResults.length === 0 ? "No lists found" : `${this.state.searchResults.length} results` }</p>
                 <div className={styles.listsContainer}>
                     { this.state.searchResults.map((list) => 

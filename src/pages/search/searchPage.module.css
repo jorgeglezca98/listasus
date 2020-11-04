@@ -1,18 +1,31 @@
 
-.listsContainer {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0px auto;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-
 .searchResults {
     padding: 10px;
+}
+
+.searchBarContainer {
+    margin: 0px auto;
+    width: 55%;
+    margin: 30px auto;
+}
+
+@media all and (max-width:750px){
+    .searchBarContainer {
+        width: 80%;
+    }
 }
 
 .searchResults > p {
     font-size: 1.1rem;
     color: #888;
     font-weight: bold;
+}
+
+
+.listsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0px auto;
+    flex-wrap: wrap;
+    margin-top: 15px;
 }
