@@ -17,7 +17,9 @@ class App extends React.Component {
          return (
             <BrowserRouter>
                 <nav>
-                    <img className={styles.logo} src={logoIcon} alt='App icon'></img>
+                    <Link to="/" className={styles.logoButton}>
+                        <img className={styles.logo} src={logoIcon} alt='App icon'></img>
+                    </Link>
                     <img className={styles.userIcon} src={userIcon} alt="User icon"></img>
                     <div className={styles.cardview + ' ' + styles.userWindow}>
                         <img className={styles.userWindowIcon} src={userIcon} alt="User icon"></img>
