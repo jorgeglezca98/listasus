@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route } from 'react-router-dom'
 
 import HomePage from './pages/home/homePage'
 import SearchPage from './pages/search/searchPage'
+import FullListPage from './pages/fullList/fullList'
 
 import styles from './App.module.css'
 
@@ -29,6 +30,7 @@ class App extends React.Component {
                 <div className={styles.content}>
                     <Route path="/" exact component={HomePage}/>
                     <Route path="/search" component={SearchPage}/>
+                    <Route path="/search/:id" component={FullListPage}/>
                 </div>
                 <footer>
                     <ul>
