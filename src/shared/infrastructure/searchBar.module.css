@@ -20,8 +20,14 @@
     padding-right: 10px;
 }
 
-.searchBar > img {
-    height: 50%;
+.searchBar > button {
+    width: 10%;
+    cursor: pointer;
+    outline: none;
+}
+
+.searchBar img {
+    height: 60%;
     margin: auto;
 }
 

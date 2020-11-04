@@ -11,6 +11,10 @@ import giveKnowledge from '../../assets/img/give-knowledge.svg'
 
 class HomePage extends React.Component {
 
+    searchResults = (search) => (
+        this.props.history.push(`/search?search=${search}`)
+    )
+
     render() {
         return (
             <div>
@@ -20,7 +24,7 @@ class HomePage extends React.Component {
                             <h1 className={ styles.webName }>Listasus</h1>
                             <p>Organiza. Comparte. Lista.</p>
                             <div className={ styles.searchBarContainer }>
-                                <SearchBar/>
+                                <SearchBar onSearch={ this.searchResults }/>
                             </div>
                         </div>
                     </div>
