@@ -1,0 +1,51 @@
+.list {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    color: black;
+    transition: transform 0.3s ease;
+    font-size: 1.4rem;
+}
+
+.listHead {
+    display: flex;
+    height: 7%;
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+.listAuthor {
+    font-size: 0.9em;
+    display: inline;
+    align-content: center;
+    margin: auto 0px;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.listBody {
+    overflow-y: hidden;
+    padding: 10px;
+    height: 84%;
+}
+
+.listElements {
+    margin-left: 20px;
+    padding: 0px 40px 0px 7%;
+    font-size: 0.8em;
+    columns: 2;
+}
+
+@media all and (max-width:600px){
+    .listElements {
+        columns: 1;
+    }
+}
+
+.listFoot {
+    text-align: right;
+    height: 7%;
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+}

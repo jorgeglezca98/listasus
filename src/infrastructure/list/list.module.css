@@ -48,8 +48,8 @@ hr {
     padding: 10px;
 }
 
-.listHead p {
-    font-size: 15px;
+.authorName {
+    font-size: 0.9em;
     display: inline;
     align-content: center;
     margin: auto 0px;
@@ -57,10 +57,10 @@ hr {
     white-space: nowrap;
 }
 
-.listHead img {
+.categoryImg {
     display: inline;
     height: 100%;
-    margin-right: 0.5rem;
+    margin-right: 0.5em;
 }
 
 .listBody {
@@ -69,18 +69,18 @@ hr {
     height: 63%;
 }
 
-.listBody h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+.listTitle {
+    font-size: 1em;
+    margin-bottom: 0.5em;
 }
 
-.listBody ul {
+.listElements {
     margin-left: 20px;
-    font-size: 0.8rem;
+    font-size: 0.8em;
 }
 
-.listBody li {
-    margin-top: 0.3rem;
+.listElement {
+    margin-top: 0.3em;
 }
 
 .listFoot {
@@ -91,21 +91,21 @@ hr {
     justify-content: flex-end;
 }
 
-.listFoot > p {
+.likesNumber {
     display: inline;
     height: fit-content;
     margin: auto 0px;
-    font-size: 0.8rem;
+    font-size: 0.8em;
 }
 
-.listFoot > button {
+.likesButton {
     background-color: transparent;
     border: none;
     height: 100%;
     margin: 0px 10px;
 }
 
-.listFoot > button > img {
+.likesImg {
     height: 50%;
     filter: grayscale();
     margin: 0px auto;
