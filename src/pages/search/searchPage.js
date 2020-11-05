@@ -22,6 +22,13 @@ class SearchPage extends React.Component {
 
     searchResults = (search) => { }
 
+    showExtendedList = (list) => {
+        this.props.history.push({
+            pathname: `/search/${list.id}`,
+            state: { list }
+        })
+    }
+
     render () {
         return (
             <div className={styles.searchResults}>
@@ -31,7 +38,7 @@ class SearchPage extends React.Component {
                 <p>{this.state.searchResults.length === 0 ? "No lists found" : `${this.state.searchResults.length} results` }</p>
                 <div className={styles.listsContainer}>
                     { this.state.searchResults.map((list) => 
-                    ( <List author={list.author} name={list.name} category={list.category} likes={list.likes} elements={list.elements}/> )
+                    ( <List author={list.author} name={list.name} category={list.category} likes={list.likes} elements={list.elements} onClick={ () => this.showExtendedList(list) }/> )
                     )}
                 </div>
             </div>

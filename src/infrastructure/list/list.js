@@ -31,11 +31,13 @@ class List extends React.Component {
             ...summarizedListStyles,
             ...this.stylesMap[props.type]
         }
+
+        this.onClick = props.onClick ? props.onClick : () => {}
     }
     
     render() {
         return (
-            <div className={ this.styles.cardview + ' ' + this.styles.list}>
+            <div className={ this.styles.cardview + ' ' + this.styles.list} onClick={ this.onClick }>
                 <div className={ this.styles.listHead }>
                     <img className={ this.styles.categoryImg } src={ this.categoryMap[this.props.category] } alt="category"/>
                     <p className={ this.styles.authorName }>{ this.props.author }</p>
