@@ -1,25 +1,30 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 
 import styles from './searchBar.module.css'
 
 import lens from '../../assets/img/lens.png'
 
 
-class SearchBar extends React.Component {
+interface SearchBarProps {
+    onSearch?: (searchValue: string) => void
+}
 
-    searchInput = React.createRef()
 
-    constructor(props) {
+class SearchBar extends React.Component<SearchBarProps> {
+
+    private searchInput : React.RefObject<HTMLInputElement>
+    private onSearch : (searchValue: string) => void
+
+    constructor(props: SearchBarProps) {
         super(props)
 
-        if(!props.onSearch) {
-            props.onSearch = () => {}
-        }
+        this.onSearch = props.onSearch ? props.onSearch : () => {}
+        this.searchInput = React.createRef()
     }
 
     componentDidMount() {
-        this.searchInput.current.addEventListener("keyup", (event) => {
-            if(event.keyCode === 13) {
+        this.searchInput.current && this.searchInput.current.addEventListener("keyup", (event) => {
+            if(event.key === 'Enter') {
                 event.preventDefault()
                 this.search()
             }
@@ -27,9 +32,9 @@ class SearchBar extends React.Component {
     }
 
     search = () => {
-        const searchValue = this.searchInput.current.value
+        const searchValue = this.searchInput.current?.value
         if(searchValue) {
-            this.props.onSearch(searchValue)
+            this.onSearch(searchValue)
         }
     }
 

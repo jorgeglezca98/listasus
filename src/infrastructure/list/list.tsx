@@ -10,9 +10,22 @@ import foodIcon from '../../assets/img/food.png'
 import travelICon from '../../assets/img/travel.png'
 import computerIcon from '../../assets/img/computer.png'
 
-class List extends React.Component {
 
-    categoryMap = { 
+interface ListProps {
+    type?: string;
+    id: number,
+    author: string,
+    name: string,
+    category: string,
+    likes: number,
+    elements: Array<string>
+    onClick?: () => void
+}
+
+
+class List extends React.Component<ListProps> {
+
+    categoryMap : { [key:string]: string } = { 
         "nature": leafIcon, 
         "parenthood": babyIcon,
         "food": foodIcon,
@@ -20,16 +33,20 @@ class List extends React.Component {
         "technology": computerIcon
     }
 
-    stylesMap = {
-        "extended": extendedListStyles
+    stylesMap : { [key:string]: object | undefined } = {
+        "extended": extendedListStyles,
+        "summarized": undefined
     }
 
-    constructor(props) {
+    private onClick: () => void
+    private styles: { [key:string]: string }
+
+    constructor(props: ListProps) {
         super(props)
 
         this.styles = {
             ...summarizedListStyles,
-            ...this.stylesMap[props.type]
+            ...this.stylesMap[props.type ? props.type : "summarized"]
         }
 
         this.onClick = props.onClick ? props.onClick : () => {}

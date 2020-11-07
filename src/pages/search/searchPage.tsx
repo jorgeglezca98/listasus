@@ -2,15 +2,25 @@ import React from 'react'
 import List from '../../infrastructure/list/list'
 import ListEntity from '../../domain/list/entity/list'
 import SearchBar from '../../shared/infrastructure/searchBar'
+import { RouteComponentProps } from 'react-router-dom'
 
 import styles from './searchPage.module.css'
 
-class SearchPage extends React.Component {
 
-    constructor (props) {
+interface SearchPageProps extends RouteComponentProps {
+    search?: string
+}
+
+
+class SearchPage extends React.Component<SearchPageProps> {
+
+    state: { searchResults: Array<ListEntity> }
+
+    constructor (props: SearchPageProps) {
         super(props)
-        if(this.props.search) {
+        if(props.search) {
              // search results and save them
+             this.state = { searchResults: [] }
         } else {
             this.state = {
                 searchResults : Array(20).fill(
@@ -20,11 +30,11 @@ class SearchPage extends React.Component {
         }
     }
 
-    searchResults = (search) => { }
+    searchResults = (search: string) => { }
 
-    showExtendedList = (list) => {
+    showExtendedList = (list: ListEntity) => {
         this.props.history.push({
-            pathname: `/search/${list.id}`,
+            pathname: `/search/${list.getId}`,
             state: { list }
         })
     }
@@ -37,8 +47,8 @@ class SearchPage extends React.Component {
                 </div>
                 <p>{this.state.searchResults.length === 0 ? "No lists found" : `${this.state.searchResults.length} results` }</p>
                 <div className={styles.listsContainer}>
-                    { this.state.searchResults.map((list) => 
-                    ( <List author={list.author} name={list.name} category={list.category} likes={list.likes} elements={list.elements} onClick={ () => this.showExtendedList(list) }/> )
+                    { this.state.searchResults.map((list: ListEntity) => 
+                    ( <List id={list.getId} author={list.getAuthor} name={list.getName} category={list.getCategory} likes={list.getLikes} elements={list.getElements} onClick={ () => this.showExtendedList(list) }/> )
                     )}
                 </div>
             </div>

@@ -47,11 +47,3 @@ class App extends React.Component {
 }
 
 export default App
-
-/*
- * Fix nav position 
- * Adjust searchBar with father css module
- * Fix footer position
- * 
- * Link from searchBar to searchPage
- */

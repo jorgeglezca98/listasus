@@ -1,5 +1,8 @@
 import React from 'react'
+import { RouteComponentProps } from 'react-router-dom'
+
 import styles from './homePage.module.css'
+
 import List from '../../infrastructure/list/list'
 import SearchBar from '../../shared/infrastructure/searchBar'
 
@@ -9,9 +12,9 @@ import listImg from '../../assets/img/list.svg'
 import giveKnowledge from '../../assets/img/give-knowledge.svg'
 
 
-class HomePage extends React.Component {
+class HomePage extends React.Component<RouteComponentProps> {
 
-    searchResults = (search) => (
+    searchResults = (search: string) => (
         this.props.history.push(`/search?search=${search}`)
     )
 
@@ -61,11 +64,11 @@ class HomePage extends React.Component {
                 <div className={ styles.popular}>
                     <h2>Popular lists</h2>
                     <div className={ styles.lists}>
-                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
-                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
-                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
-                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
-                        <List author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List id={1} author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List id={2} author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List id={3} author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List id={4} author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
+                        <List id={5} author="Jorge" name="Animales" category="nature" likes={12352} elements={ ["perro", "gato", "elefante", "tigre", "boa"] }/>
                     </div>
                 </div>
             </div>
