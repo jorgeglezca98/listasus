@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react'
+import React, { useRef } from 'react'
 
 import styles from './searchBar.module.css'
 
@@ -10,44 +10,34 @@ interface SearchBarProps {
 }
 
 
-class SearchBar extends React.Component<SearchBarProps> {
+const SearchBar = (props: SearchBarProps) => {
+    const searchInput = useRef<HTMLInputElement>(null)
+    const onSearch : (searchValue: string) => void = props.onSearch ? props.onSearch : () => {}
 
-    private searchInput : React.RefObject<HTMLInputElement>
-    private onSearch : (searchValue: string) => void
-
-    constructor(props: SearchBarProps) {
-        super(props)
-
-        this.onSearch = props.onSearch ? props.onSearch : () => {}
-        this.searchInput = React.createRef()
-    }
-
-    componentDidMount() {
-        this.searchInput.current && this.searchInput.current.addEventListener("keyup", (event) => {
-            if(event.key === 'Enter') {
-                event.preventDefault()
-                this.search()
-            }
-        })
-    }
-
-    search = () => {
-        const searchValue = this.searchInput.current?.value
+    const search = () => {
+        const searchValue = searchInput.current?.value
         if(searchValue) {
-            this.onSearch(searchValue)
+            onSearch(searchValue)
         }
     }
 
-    render() {
-        return (
-            <div className={ styles.searchBar }>
-                <input ref={ this.searchInput } placeholder="¿De qué va la lista que necesitas?"></input>
-                <button onClick= { () => this.search() }>
-                    <img src={lens} alt='Search button'></img>
-                </button>
-            </div>
-        )
-    }
+    React.useEffect(() => {
+        searchInput.current && searchInput.current.addEventListener("keyup", (event) => {
+            if(event.key === 'Enter') {
+                event.preventDefault()
+                search()
+            }
+        })
+    }, [])
+
+    return (
+        <div className={ styles.searchBar }>
+            <input ref={ searchInput } placeholder="¿De qué va la lista que necesitas?"></input>
+            <button onClick= { () => search() }>
+                <img src={lens} alt='Search button'></img>
+            </button>
+        </div>
+    )
 }
 
 export default SearchBar
