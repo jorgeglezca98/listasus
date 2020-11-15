@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, MouseEvent as ReactMouseEvent } from 'react'
 
 import summarizedListStyles from './list.module.css'
 import extendedListStyles from './extendedList.module.css'
@@ -19,64 +19,52 @@ interface ListProps {
     category: string,
     likes: number,
     elements: Array<string>
-    onClick?: () => void
+    onClick?: (event: ReactMouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
+const categoryMap : { [key:string]: string } = { 
+    "nature": leafIcon, 
+    "parenthood": babyIcon,
+    "food": foodIcon,
+    "travel": travelICon,
+    "technology": computerIcon
+}
 
-class List extends React.Component<ListProps> {
+const stylesMap : { [key:string]: object | undefined } = {
+    "extended": extendedListStyles,
+    "summarized": undefined
+}
 
-    categoryMap : { [key:string]: string } = { 
-        "nature": leafIcon, 
-        "parenthood": babyIcon,
-        "food": foodIcon,
-        "travel": travelICon,
-        "technology": computerIcon
-    }
-
-    stylesMap : { [key:string]: object | undefined } = {
-        "extended": extendedListStyles,
-        "summarized": undefined
-    }
-
-    private onClick: () => void
-    private styles: { [key:string]: string }
-
-    constructor(props: ListProps) {
-        super(props)
-
-        this.styles = {
-            ...summarizedListStyles,
-            ...this.stylesMap[props.type ? props.type : "summarized"]
-        }
-
-        this.onClick = props.onClick ? props.onClick : () => {}
-    }
+const List = (props: ListProps) => {
     
-    render() {
-        return (
-            <div className={ this.styles.cardview + ' ' + this.styles.list} onClick={ this.onClick }>
-                <div className={ this.styles.listHead }>
-                    <img className={ this.styles.categoryImg } src={ this.categoryMap[this.props.category] } alt="category"/>
-                    <p className={ this.styles.authorName }>{ this.props.author }</p>
-                </div>
-                <hr/>
-                <div className={ this.styles.listBody }>
-                    <h3 className={ this.styles.listTitle }>{ this.props.name }</h3>
-                    <ul className={ this.styles.listElements }>
-                         { /* Change key with id */ }
-                        { this.props.elements.map((el) => ( <li key={el} className={ this.styles.listElement }>{el}</li> )) }
-                    </ul>
-                </div>
-                <hr/>
-                <div className={ this.styles.listFoot }>
-                    <p className={ this.styles.likesNumber }>{ this.props.likes }</p>
-                    <button className={ this.styles.likesButton }>
-                        <img className={ this.styles.likesImg } src={ heart } alt='Like button'></img>
-                    </button>
-                </div>
+    const [styles, ] = useState({
+        ...summarizedListStyles,
+        ...stylesMap[props.type ? props.type : "summarized"]
+    })
+
+    return (
+        <div className={ styles.cardview + ' ' + styles.list} onClick={ props.onClick }>
+            <div className={ styles.listHead }>
+                <img className={ styles.categoryImg } src={ categoryMap[props.category] } alt="category"/>
+                <p className={ styles.authorName }>{ props.author }</p>
             </div>
-        )
-    }
+            <hr/>
+            <div className={ styles.listBody }>
+                <h3 className={ styles.listTitle }>{ props.name }</h3>
+                <ul className={ styles.listElements }>
+                     { /* Change key with id */ }
+                    { props.elements.map((el) => ( <li key={el} className={ styles.listElement }>{el}</li> )) }
+                </ul>
+            </div>
+            <hr/>
+            <div className={ styles.listFoot }>
+                <p className={ styles.likesNumber }>{ props.likes }</p>
+                <button className={ styles.likesButton }>
+                    <img className={ styles.likesImg } src={ heart } alt='Like button'></img>
+                </button>
+            </div>
+        </div>
+    )
 }
 
 export default List
