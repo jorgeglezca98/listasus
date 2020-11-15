@@ -29,7 +29,7 @@ const App = () => (
         <div className={styles.content}>
             <Route path="/" exact component={HomePage}/>
             <Route path="/search" component={SearchPage}/>
-            <Route path="/search/:id" component={FullListPage}/>
+            <Route path="/search/:id(\d+)" component={FullListPage}/>
         </div>
         <footer>
             <ul>
