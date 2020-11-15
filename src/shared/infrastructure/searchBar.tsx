@@ -6,7 +6,8 @@ import lens from '../../assets/img/lens.png'
 
 
 interface SearchBarProps {
-    onSearch?: (searchValue: string) => void
+    onSearch?: (searchValue: string) => void,
+    value?: string
 }
 
 
@@ -32,7 +33,7 @@ const SearchBar = (props: SearchBarProps) => {
 
     return (
         <div className={ styles.searchBar }>
-            <input ref={ searchInput } placeholder="¿De qué va la lista que necesitas?"></input>
+            <input ref={ searchInput } placeholder="¿De qué va la lista que necesitas?" defaultValue={ props.value }></input>
             <button onClick= { () => search() }>
                 <img src={lens} alt='Search button'></img>
             </button>

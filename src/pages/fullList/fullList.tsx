@@ -1,28 +1,40 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 
 import List from '../../infrastructure/list/list'
+import ConfigContext from '../../shared/configContext'
 
 import ListEntity from '../../domain/list/entity/list'
 
 import styles from './fullList.module.css'
+import { exit } from 'process'
 
 
-interface FullListPageProps extends RouteComponentProps<any, any,{ list?: ListEntity }> {}
+interface FullListPageProps extends RouteComponentProps<{id: string}, any, any> {}
 
 const FullListPage = (props: FullListPageProps) => {
-    let givenList;
-    if(!props.location.state?.list) {
-        // search data by id and update the list attributes
-        givenList = new ListEntity(1, "Jorge", "Piezas de ordenador", "technology", 123432, ["Placa base", "RAM", "Procesador", "Gráfica"] )
-    } else {
-        givenList = props.location.state.list
+    /* Context */
+
+    const { listRepository } = useContext(ConfigContext)
+
+    /* State */
+
+    const [list, changeList] = React.useState<ListEntity>(
+        !props.location.state?.list ?
+        listRepository.findById(+props.match.params.id) :
+        props.location.state.list
+    )
+
+    /* Methods */
+
+    const closePage = () => {
+        props.history.replace('/search')
     }
 
-    const [list, changeList] = React.useState<ListEntity>(givenList)
+    /* Render */
 
     return (
-        <div className={ styles.listBackground } onClick={ () => props.history.replace("/search") }>
+        <div className={ styles.listBackground } onClick={ closePage }>
             <div className={ styles.listContainer } onClick={ (event) => { event.stopPropagation() } }>
             <List 
                 type="extended"
