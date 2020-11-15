@@ -7,7 +7,6 @@ import ConfigContext from '../../shared/configContext'
 import ListEntity from '../../domain/list/entity/list'
 
 import styles from './fullList.module.css'
-import { exit } from 'process'
 
 
 interface FullListPageProps extends RouteComponentProps<{id: string}, any, any> {}
