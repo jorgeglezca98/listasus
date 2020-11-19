@@ -9,6 +9,7 @@ import styles from './App.module.css'
 
 import logoIcon from './assets/img/logo.png'
 import userIcon from './assets/img/user.png'
+import UserListsPage from './pages/userLists/userListsPage'
 
 
 const App = () => (
@@ -20,7 +21,7 @@ const App = () => (
             <img className={styles.userIcon} src={userIcon} alt="User icon"></img>
             <div className={styles.cardview + ' ' + styles.userWindow}>
                 <img className={styles.userWindowIcon} src={userIcon} alt="User icon"></img>
-                <Link to="/">Mis listas</Link>
+                <Link to="/user-lists">Mis listas</Link>
                 <Link to="/">Listas guardadas</Link>
                 <hr />
                 <Link to="/">Cerrar sesión</Link>
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/" exact component={HomePage}/>
             <Route path="/search" component={SearchPage}/>
             <Route path="/search/:id(\d+)" component={FullListPage}/>
+            <Route path="/user-lists" component={UserListsPage}/>
         </div>
         <footer>
             <ul>
